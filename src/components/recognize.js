@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Webcam from "react-webcam";
 
 import '../styles/register.css';
+import LandingPage from "./landing-page";
 
 
-class Recognize extends Component {
+class Recognize extends LandingPage {
             setRef = webcam => {
               this.webcam = webcam;
             };
