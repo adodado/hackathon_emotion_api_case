@@ -20,7 +20,7 @@ class LandingPage extends Component {
 };
     const headers = {
         'Content-Type': 'application/json',
-        
+        'Ocp-Apim-Subscription-Key' :dd44fc612ea44107a0f0084b91a02a53    
     }
 
     capture = () => {
@@ -30,7 +30,7 @@ class LandingPage extends Component {
         return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0',{
 
             },{
-                'Application' : 'application.json'
+                
             }
         ).then(response =>{
 
