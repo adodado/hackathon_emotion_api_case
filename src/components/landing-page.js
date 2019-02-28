@@ -17,12 +17,11 @@ class LandingPage extends Component {
         console.log("tja");
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
-        return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0',{
+        return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect',{
                 imageSrc
             },{
                 'Content-Type': 'application/octet-stream',
-                'Ocp-Apim-Subscription-Key' : 'dd44fc612ea44107a0f0084b91a02a53',
-                'Access-Control-Allow-Origin': '/localhost:3000'
+                'Ocp-Apim-Subscription-Key' : 'dd44fc612ea44107a0f0084b91a02a53'
         }).then(response =>{
             console.log('tjofadderej');
         })
