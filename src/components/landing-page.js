@@ -13,14 +13,27 @@ class LandingPage extends Component {
         this.webcam = webcam;
     };
 
+    const params = {
+        'returnFaceId': 'true',
+        'returnFaceLandmarks': 'false',
+        'returnFaceAttributes': 'age, gender, smile, glasses, emotion, accessories'
+};
+    const headers = {
+        'Content-Type': 'application/json',
+        
+    }
+
     capture = () => {
         console.log("tja");
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
-        return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0', {
-            params: {
+        return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0',{
 
+            },{
+                'Application' : 'application.json'
             }
+        ).then(response =>{
+
         })
     };
 
