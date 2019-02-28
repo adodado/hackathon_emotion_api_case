@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import '../styles/register.css';
 import Webcam from "react-webcam";
-import axios from 'axios';
+//import axios from 'axios';
+
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+
 // material-ui components
 import { Card, CardActions, CardMedia, CardText } from 'material-ui/Card';
+const request = require('request');
+
+
 
 class LandingPage extends Component {
     setRef = webcam => {
@@ -14,17 +19,41 @@ class LandingPage extends Component {
     };
 
     capture = () => {
-        console.log("tja");
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
-        return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect',{
-                imageSrc
-            },{
-                'Content-Type': 'application/octet-stream',
+        // return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect',{
+        //         data: imageSrc
+        //     },{ 
+        //         'Content-Type': 'application/octet-stream',
+        //         'Ocp-Apim-Subscription-Key' : 'acf520c0c0b244cc895f5f7b51eb2f31'
+        // }).then(response =>{
+        // })
+
+        const params = {
+            'returnFaceId': 'true',
+            'returnFaceLandmarks': 'false',
+            'returnFaceAttributes': 'age,gender,smile,facialHair,glasses,emotion'
+        };
+        // https://hips.hearstapps.com/cosmouk.cdnds.net/15/10/nrm_1425398982-pretty-woman-trivia-facts.jpg
+        const options = {
+            uri: 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect',
+            qs: params,
+            body: '{"url": ' + '"' + 'https://hips.hearstapps.com/cosmouk.cdnds.net/15/10/nrm_1425398982-pretty-woman-trivia-facts.jpg' + '"}',
+            headers: {
+                'Content-Type': 'application/json',
                 'Ocp-Apim-Subscription-Key' : 'acf520c0c0b244cc895f5f7b51eb2f31'
-        }).then(response =>{
-            console.log('tjofadderej');
-        })
+            }
+        };
+        
+        request.post(options, (error, response, body) => {
+          if (error) {
+            console.log('Error: ', error);
+            return;
+          }
+          let jsonResponse = JSON.stringify(JSON.parse(body), null, '  ');
+          console.log('JSON Response\n');
+          console.log(jsonResponse);
+        });
     };
 
     render() {
