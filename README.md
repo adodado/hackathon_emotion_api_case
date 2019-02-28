@@ -2,7 +2,7 @@ DESCRIPTION
 This is a boilerplate that is meant to be used durring a capgemini Hackathon. The Hackathon will consist of student trying to implement one of the cases below.
 
 CASE 1 (Emotional state recognition, azure cognitive services):
-wwww
+
 CUSTOMER
 
 Customer is a online general practitioner. The Customer has several innovative services that they offer to customers ranging from online diagnosis of medical ailments to online behavioral therapy. The Customers solutions are used by many customers in the Nordics.
