@@ -1,3 +1,5 @@
+Readme that belong to samost haxxers!
+
 DESCRIPTION
 This is a boilerplate that is meant to be used durring a capgemini Hackathon. The Hackathon will consist of student trying to implement one of the cases below.
 
