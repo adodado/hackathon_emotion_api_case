@@ -17,7 +17,7 @@ class LandingPage extends Component {
         console.log("tja");
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
-        return axios.post('', {
+        return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0', {
             params: {
 
             }
