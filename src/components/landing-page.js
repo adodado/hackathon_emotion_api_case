@@ -21,7 +21,7 @@ class LandingPage extends Component {
                 imageSrc
             },{
                 'Content-Type': 'application/octet-stream',
-                'Ocp-Apim-Subscription-Key' : 'dd44fc612ea44107a0f0084b91a02a53'
+                'Ocp-Apim-Subscription-Key' : 'acf520c0c0b244cc895f5f7b51eb2f31'
         }).then(response =>{
             console.log('tjofadderej');
         })
