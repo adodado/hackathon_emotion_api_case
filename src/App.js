@@ -9,7 +9,6 @@ import MenuItem from 'material-ui/MenuItem';
 import { Route, Switch, Link } from 'react-router-dom';
 
 import LandingPage from './components/landing-page';
-import Recognize from './components/recognize';
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class App extends Component {
       <div>
         <AppBar
           className='app-bar'
-          title='Capgemini Workshop PWA'
+          title='Capgemini Workshop'
           onLeftIconButtonClick={() => this.toggleDrawerMenu()}
           zDepth={2}
         />
@@ -48,12 +47,10 @@ class App extends Component {
           onRequestChange={(toggle) => this.setState({ toggle })}
         >
           <Link to={'/'} className='link'><MenuItem onClick={() => this.handleClose()}>Home</MenuItem></Link>
-          <Link to={'/recognize'} className='link'><MenuItem onClick={() => this.handleClose()}>Am i happy or sad?</MenuItem></Link>
         </Drawer>
 
         <Switch>
           <Route exact path='/' render={(props) => <LandingPage {...props} />} />
-          <Route path='/recognize' render={(props) => <Recognize {...props} />} />
           <Route path='**' render={(props) => <LandingPage {...props} />} />
         </Switch>
       </div>
