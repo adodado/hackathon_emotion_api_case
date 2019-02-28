@@ -4,7 +4,7 @@ import Webcam from "react-webcam";
 import '../styles/register.css';
 
 
-class recognize extends Component {
+class Recognize extends Component {
             setRef = webcam => {
               this.webcam = webcam;
             };
@@ -16,6 +16,7 @@ class recognize extends Component {
             };
            
             render() {
+                console.log("tjo");
               const videoConstraints = {
                 width: 1280,
                 height: 720,
@@ -38,4 +39,4 @@ class recognize extends Component {
             }
 }
 
-export default recognize;
+export default Recognize;

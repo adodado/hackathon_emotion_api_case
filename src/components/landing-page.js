@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/register.css';
 import Webcam from "react-webcam";
+import 'recognize.js';
 
 
 // images being used
@@ -16,6 +17,7 @@ import FlatButton from 'material-ui/FlatButton';
 class LandingPage extends Component {
 
     render() {
+        console.log("hej");
         return (
             <Grid fluid>
             <Row>
