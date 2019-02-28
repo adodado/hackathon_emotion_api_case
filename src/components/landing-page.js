@@ -14,6 +14,13 @@ import FlatButton from 'material-ui/FlatButton';
 
 class LandingPage extends Component {
 
+    setRef = webcam => {
+        this.webcam = webcam;
+    };
+    capture = () => {
+        const imageSrc = this.webcam.getScreenshot();
+    };
+
     render() {
         return (
             <Grid fluid>
@@ -41,14 +48,14 @@ class LandingPage extends Component {
                     <Col xs={12} md={4} style={{ 'textAlign': 'center' }}>
                         <Card>
                             <CardMedia>
-                                <Webcam/>
+                                <Webcam ref={this.setRef} screenshotFormat="image/jpeg"/>
                             </CardMedia>
                             <CardTitle title="Capture" />
                             <CardText>
                                 Capture image from native camera.
                             </CardText>
                             <CardActions>
-                                <Link to={'/recognize'}><FlatButton className='flat-btn' label="AM I SAD OR HAPPY?" /></Link>
+                                <Link to={'/recognize'}><FlatButton className='flat-btn' onClick={this.capture} label="AM I SAD OR HAPPY?" /></Link>
                             </CardActions>
                         </Card>
                     </Col>
