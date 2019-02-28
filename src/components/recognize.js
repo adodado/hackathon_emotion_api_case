@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import Webcam from "react-webcam";
 
 import '../styles/register.css';
 
 
 class recognize extends Component {
-    render() {
-       
             setRef = webcam => {
               this.webcam = webcam;
             };
            
             capture = () => {
-              const imageSrc = this.webcam.getScreenshot();
+                console.log("tja");
+                const imageSrc = this.webcam.getScreenshot();
+              console.log(imageSrc);
             };
            
             render() {
@@ -35,8 +36,6 @@ class recognize extends Component {
                 </div>
               );
             }
-          }
-    
 }
 
 export default recognize;
