@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/register.css';
 import Webcam from "react-webcam";
-
-// images being used
-import landingImg from '../assets/images/Camera.png';
+import axios from 'axios';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 // material-ui components
-import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import { Card, CardActions, CardMedia, CardText } from 'material-ui/Card';
 
 class LandingPage extends Component {
+    setRef = webcam => {
+        this.webcam = webcam;
+    };
+
+    capture = () => {
+        console.log("tja");
+        const imageSrc = this.webcam.getScreenshot();
+        console.log(imageSrc);
+        return axios.post('', {
+            params: {
+
+            }
+        })
+    };
 
     render() {
-        console.log("hej");
+        const videoConstraints = {
+            width: 1280,
+            height: 720,
+            facingMode: "user"
+        };
+
         return (
             <Grid fluid>
             <Row>
@@ -41,15 +56,21 @@ class LandingPage extends Component {
                     <Col xs={12} md={4} style={{ 'textAlign': 'center' }}>
                         <Card>
                             <CardMedia>
-                                <Webcam />
-                                <img className='landingImage' src={landingImg} alt="gallery-face" />
+                                <Webcam
+                                    audio={false}
+                                    height={350}
+                                    ref={this.setRef}
+                                    screenshotFormat="image/jpeg"
+                                    width={350}
+                                    videoConstraints={videoConstraints}
+                                />
+
                             </CardMedia>
-                            <CardTitle title="Capture" />
                             <CardText>
                                 Capture image from native camera.
                             </CardText>
                             <CardActions>
-                                <Link to={'/recognize'}><FlatButton className='flat-btn' label="AM I SAD OR HAPPY?" /></Link>
+                                <button onClick={this.capture}>Capture photo</button>
                             </CardActions>
                         </Card>
                     </Col>
