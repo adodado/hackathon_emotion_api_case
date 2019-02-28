@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/register.css';
+import Webcam from "react-webcam"
 
 // images being used
 import landingImg from '../assets/images/Camera.png';
@@ -35,11 +36,12 @@ class LandingPage extends Component {
                 <Col md={1}>
                     </Col>
                     <Col md={3}>
+                        
                     </Col>
                     <Col xs={12} md={4} style={{ 'textAlign': 'center' }}>
                         <Card>
                             <CardMedia>
-                                <img className='landingImage' src={landingImg} alt="gallery-face" />
+                                <Webcam/>
                             </CardMedia>
                             <CardTitle title="Capture" />
                             <CardText>
