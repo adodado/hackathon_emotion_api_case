@@ -13,27 +13,18 @@ class LandingPage extends Component {
         this.webcam = webcam;
     };
 
-    const params = {
-        'returnFaceId': 'true',
-        'returnFaceLandmarks': 'false',
-        'returnFaceAttributes': 'age, gender, smile, glasses, emotion, accessories'
-};
-    const headers = {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key' :dd44fc612ea44107a0f0084b91a02a53    
-    }
-
     capture = () => {
         console.log("tja");
         const imageSrc = this.webcam.getScreenshot();
         console.log(imageSrc);
         return axios.post('https://westcentralus.api.cognitive.microsoft.com/face/v1.0',{
-
+                imageSrc
             },{
-                
-            }
-        ).then(response =>{
-
+                'Content-Type': 'application/octet-stream',
+                'Ocp-Apim-Subscription-Key' : 'dd44fc612ea44107a0f0084b91a02a53',
+                'Access-Control-Allow-Origin': '/localhost:3000'
+        }).then(response =>{
+            console.log('tjofadderej');
         })
     };
 
