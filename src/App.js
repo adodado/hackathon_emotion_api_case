@@ -9,6 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { Route, Switch, Link } from 'react-router-dom';
 
 import LandingPage from './components/landing-page';
+import Recognize from './components/recognize';
 
 class App extends Component {
   constructor(props) {
@@ -51,7 +52,8 @@ class App extends Component {
 
         <Switch>
           <Route exact path='/' render={(props) => <LandingPage {...props} />} />
-          <Route path='**' render={(props) => <LandingPage {...props} />} />
+            <Route path='/recognize' render={(props) => <Recognize {...props} />} />
+            <Route path='**' render={(props) => <LandingPage {...props} />} />
         </Switch>
       </div>
     );
