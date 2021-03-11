@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "b64-to-blob": "^1.2.19",
     "blob-util": "^2.0.2",
     "material-ui": "^0.20.0",
